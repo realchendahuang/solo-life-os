@@ -205,6 +205,49 @@
 
 1. **增（Create / Append）**：用户指出全新错误形态或反感风格时，先查重现有规则；提炼为通用的工程师写作原理，在（一）追加红线并在（二）配对 ❌ vs ✅ Few-Shot，同步更新 `profile/examples-bad.md`。
 2. **删（Delete / Prune）**：旧规则过时或与用户最新明确指令冲突时，经用户明确指令后干净剔除，并在 `workspace/feedback/ledger.jsonl` 中记录。严禁 Agent 自行静默删减。
-3. **改（Merge / Update）**：用户再次批评类似问题时，**严禁新建碎屑条目**；坚决执行“合并同类项”，扩充既有红线的黑名单词库或替换更深刻的 Few-Shot。
+3. **改（Merge / Update）**：用户再次批评类似问题时，**严禁新建碎屑条目**；坚决合并同类项，扩充既有红线的黑名单词库或替换更深刻的 Few-Shot。
 4. **查（Audit / Read）**：写稿改稿前模型在**内部思考中原生自检**（音色对标、零引号、零不是而是、零浮夸词、文末干净），**严禁调用外部脚本**，秒级极速在对话框代码块直出。
+
+## 5. 双仓库协同与开源迭代规范（Private Vault vs Public Starter）
+
+本项目采用双仓库解耦架构：
+- **私有金库（solo-life-os-vault）**：日常真实工作的唯一真源。所有灵感捕获、选题推进、推文归档、改稿反馈账本、个人资产账本及私密事实库，均在此仓库中发生并由私有 Git 纳管；
+- **开源起手式（solo-life-os）**：面向社区超级个体的开源开箱框架。包含纯净的智能体技能集（Skills）、执行脚本、数据合约、自动化测试以及通用的防 AI 味写作宪法，已物理隔离所有个人私有数据。
+
+### （一）核心资产边界与隔离门禁
+
+| 分类 | 对应目录与文件 | 纳管仓库 | 开源同步策略 |
+|---|---|---|---|
+| **引擎能力层** | `.agents/skills/`、`contracts/`、`scripts/`、`tests/`、`sources/` | Vault 与 Public | 允许向开源仓库单向同步 |
+| **通用规范层** | `AGENTS.md`、`profile/hits-patterns.md`、`profile/examples-bad.md`、`profile/writing-style.md`、`profile/operating-policy.md` | Vault 与 Public | 允许向开源仓库单向同步 |
+| **私密工作区** | `workspace/inbox/`、`workspace/topics/`、`workspace/posts/`、`workspace/feedback/`、`workspace/reviews/`、`workspace/candidates.jsonl`、`workspace/github-repos.md` | 仅限 Vault | **物理绝缘，严禁同步** |
+| **个人身份层** | `profile/facts.md`、`profile/identity.md` | 仅限 Vault | **物理绝缘，严禁同步** |
+
+### （二）日常迭代与发布流转机制
+
+#### 1. 日常工作流动线（在 Vault 中进行）
+平时日常的所有操作（记灵感、存选题、写推文、发推归档、更新避坑规则）直接在私有仓库中进行。
+- **跨端同步**：在完成一批次发布归档或会话结束时，运行 `python3 scripts/sync.py`，保持个人多设备（如 Mac、备用机）之间的 Git 分支对齐；
+- **宪法与技能更新**：在改稿过程中提炼出的通用避坑红线或实战 Few-Shot，直接就地追加至 Vault 的 `AGENTS.md` 与 `profile/examples-bad.md`。
+
+#### 2. 开源引擎同步与发版动线（Vault -> Public）
+当在私有金库中演进、修复或优化了通用技能、自动化脚本、数据合约或写作宪法，需要将引擎能力发布到公开开源仓库时，运行专用同步工具：
+
+```bash
+# 1. 模拟预览同步变动（不实际写入与推送）
+python3 scripts/release_engine.py --dry-run
+
+# 2. 确认无误后执行正式同步并推送到公开仓库（自动跑通 199 项契约测试）
+python3 scripts/release_engine.py -m "feat: 升级写作宪法与排错技能"
+
+# 3. 如需发布正式版本号，附带打标参数
+python3 scripts/release_engine.py --tag v1.1.0 -m "release: v1.1.0 完善双仓库协同机制"
+```
+
+#### 3. 发布工具的安全门禁流程
+`scripts/release_engine.py` 内部已固化三道安全门禁：
+1. **白名单单向覆盖**：仅提取引擎与通用规范目录，绝对不触碰 `workspace/` 下的个人数据与私有身份配置；
+2. **公开仓库测试拦截**：在公共仓库覆盖完成后，就地执行全量单元与契约测试。一旦有任何测试未通过，立即中断并报错，严禁破损代码流入主干；
+3. **自动化 Git 对齐与推送**：测试 100% 通过后，自动生成标准化提交信息，打 Tag 并推送至 `origin/main`。
+
 
