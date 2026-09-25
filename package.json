@@ -1,0 +1,9 @@
+{
+  "name": "solo-life-os",
+  "private": true,
+  "description": "Solo Life OS: Plain-text, local-first, Git-driven Life OS for solopreneurs. Built for @realchendahuang.",
+  "scripts": {
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "sync": "python3 scripts/sync.py"
+  }
+}

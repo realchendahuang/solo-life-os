@@ -1,0 +1,7 @@
+interface:
+  display_name: "Topic Brief"
+  short_description: "把热点或点子变成有证据、有取舍的选题简报"
+  default_prompt: "Use $topic-brief to turn this signal into up to three strong angles and tell me whether it is worth posting."
+policy:
+  allow_implicit_invocation: true
+

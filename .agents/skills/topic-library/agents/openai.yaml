@@ -1,0 +1,6 @@
+interface:
+  display_name: "Topic Library"
+  short_description: "维护个人选题库：入库、查未写选题、推进状态"
+  default_prompt: "Use $topic-library to store this topic verbatim and tell me whether it is already in the library."
+policy:
+  allow_implicit_invocation: true

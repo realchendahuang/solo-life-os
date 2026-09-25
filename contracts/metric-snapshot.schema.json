@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Metric Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "recorded_at",
+    "post_id",
+    "post_url",
+    "metric_window",
+    "window_start",
+    "window_end",
+    "source",
+    "metrics",
+    "note"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^metric-"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "post_id": {
+      "type": "string",
+      "pattern": "^[0-9]{1,19}$"
+    },
+    "post_url": {
+      "type": "string",
+      "pattern": "^https://x\\.com/[^/]+/status/[0-9]+$"
+    },
+    "metric_window": {
+      "enum": [
+        "1h",
+        "24h",
+        "7d",
+        "30d",
+        "custom"
+      ]
+    },
+    "window_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "window_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "enum": [
+        "x-analytics",
+        "x-api",
+        "user-provided"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "impressions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "likes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "replies": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reposts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quotes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bookmarks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "profile_visits": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "link_clicks": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Hit Archive"
+  short_description: "精华帖库与发布档案：入库、统计、模式提炼"
+  default_prompt: "Use $hit-archive to archive this post or report on the post archive."
+policy:
+  allow_implicit_invocation: true

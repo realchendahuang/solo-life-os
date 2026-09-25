@@ -1,0 +1,1226 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "model availability",
+        "API capabilities",
+        "pricing and quota changes",
+        "deprecations"
+      ],
+      "enabled": false,
+      "notes": "Primary source for time-sensitive OpenAI API claims; verify the individual update URL before drafting. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "openai-product-release-notes",
+      "name": "OpenAI Product Release Notes",
+      "source_url": "https://openai.com/products/release-notes/",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "Codex",
+        "ChatGPT",
+        "agent workflows"
+      ],
+      "enabled": false,
+      "notes": "Use as a discovery source only; attach the most specific official note to a candidate. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "anthropic-claude-release-notes",
+      "name": "Anthropic Claude Release Notes",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "Claude Code",
+        "models",
+        "team and workflow capabilities"
+      ],
+      "enabled": false,
+      "notes": "Do not infer API availability from a consumer-product release note. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "google-gemini-api-changelog",
+      "name": "Google Gemini API Release Notes",
+      "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "model updates",
+        "API compatibility",
+        "tool use",
+        "pricing and quota changes"
+      ],
+      "enabled": false,
+      "notes": "Capture exact model names and dates; avoid generic Gemini claims. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "github-changelog",
+      "name": "GitHub Changelog",
+      "source_url": "https://github.blog/changelog/",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "GitHub Actions",
+        "Copilot",
+        "repository workflows",
+        "security"
+      ],
+      "enabled": false,
+      "notes": "Prefer changes that alter an individual developer's workflow or cost. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "cloudflare-developer-platform-changelog",
+      "name": "Cloudflare Developer Platform Changelog",
+      "source_url": "https://developers.cloudflare.com/changelog/product-group/developer-platform/",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "Workers",
+        "AI",
+        "storage",
+        "pricing",
+        "developer tooling"
+      ],
+      "enabled": false,
+      "notes": "The account's Cloudflare practice makes concrete workflow and cost changes more valuable than feature summaries. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "vercel-changelog",
+      "name": "Vercel Changelog",
+      "source_url": "https://vercel.com/changelog",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P2",
+      "cadence": "weekly",
+      "event_filters": [
+        "AI SDK",
+        "deployment workflow",
+        "pricing",
+        "developer experience"
+      ],
+      "enabled": false,
+      "notes": "Keep only changes with a distinct implementation or cost angle for solo builders. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "hacker-news-frontpage",
+      "name": "Hacker News Frontpage",
+      "source_url": "https://news.ycombinator.com/rss",
+      "source_type": "rss",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "Show HN",
+        "Ask HN",
+        "AI",
+        "Agent",
+        "LLM",
+        "Cloudflare",
+        "Git",
+        "pricing",
+        "cost",
+        "alternative",
+        "open-source",
+        "open source",
+        "release",
+        "ZCode",
+        "DeepSeek"
+      ],
+      "enabled": true,
+      "notes": "Hacker News top stories. Filter for Show HN tools, extreme ROI, architecture, and developer debates."
+    },
+    {
+      "id": "v2ex-tech-feed",
+      "name": "V2EX Tech Discussions",
+      "source_url": "https://www.v2ex.com/feed/tab/tech.xml",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "开源",
+        "Agent",
+        "AI",
+        "模型",
+        "工具",
+        "框架",
+        "踩坑",
+        "选型",
+        "Cloudflare",
+        "独立开发",
+        "Harness",
+        "ZCode"
+      ],
+      "enabled": true,
+      "notes": "Premier Chinese developer community discussions. High-signal for local micro-pain points, tool releases, and Blueprint D question angles."
+    },
+    {
+      "id": "lobsters-frontpage",
+      "name": "Lobsters Community",
+      "source_url": "https://lobste.rs/rss",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P2",
+      "cadence": "daily",
+      "event_filters": [
+        "architecture",
+        "performance",
+        "database",
+        "SQLite",
+        "Rust",
+        "Go",
+        "API",
+        "tool",
+        "self-hosted",
+        "release"
+      ],
+      "enabled": true,
+      "notes": "Strictly-curated invite-only geek community. High signal for counter-intuitive engineering decisions and architecture reflections."
+    },
+    {
+      "id": "openchamber-releases",
+      "name": "OpenChamber GitHub Releases",
+      "source_url": "https://github.com/openchamber/openchamber/releases.atom",
+      "source_type": "github-releases",
+      "fetch_mode": "github-releases",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "v1.",
+        "v2.",
+        "release",
+        "fix",
+        "memory",
+        "GUI"
+      ],
+      "enabled": false,
+      "notes": "Direct release feed for primary agent harness. Timely alerts on breaking updates and new features. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "ollama-releases",
+      "name": "Ollama GitHub Releases",
+      "source_url": "https://github.com/ollama/ollama/releases.atom",
+      "source_type": "github-releases",
+      "fetch_mode": "github-releases",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "v0.",
+        "v1.",
+        "DeepSeek",
+        "Qwen",
+        "GLM",
+        "context",
+        "quantization",
+        "model"
+      ],
+      "enabled": false,
+      "notes": "Core local LLM runner and infrastructure. Critical for timely posts on newly supported local architectures and quantizations. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "v2ex-creative-feed",
+      "name": "V2EX Creative Discussions",
+      "source_url": "https://www.v2ex.com/feed/tab/creative.xml",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "开源",
+        "做了一个",
+        "工具",
+        "App",
+        "客户端",
+        "平台",
+        "网站",
+        "mac",
+        "AI",
+        "Agent",
+        "SaaS",
+        "分享"
+      ],
+      "enabled": true,
+      "notes": "Showcase of independent developer projects, vibe-coding apps, and indie hacker micro-experiments."
+    },
+    {
+      "id": "simonwillison-blog",
+      "name": "Simon Willison's Weblog",
+      "source_url": "https://simonwillison.net/atom/entries/",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "LLM",
+        "Claude",
+        "OpenAI",
+        "Prompt",
+        "CLI",
+        "model",
+        "agent",
+        "benchmark",
+        "local",
+        "tool"
+      ],
+      "enabled": true,
+      "notes": "Gold-standard developer notes on LLM tooling, prompt injection, and practical AI coding experiments."
+    },
+    {
+      "id": "claude-code-releases",
+      "name": "Claude Code GitHub Releases",
+      "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+      "source_type": "github-releases",
+      "fetch_mode": "github-releases",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "v0.",
+        "v1.",
+        "release",
+        "fix",
+        "agent",
+        "tool",
+        "mcp",
+        "workflow"
+      ],
+      "enabled": false,
+      "notes": "Official GitHub release feed for Claude Code terminal coding agent. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "uv-releases",
+      "name": "Astral uv GitHub Releases",
+      "source_url": "https://github.com/astral-sh/uv/releases.atom",
+      "source_type": "github-releases",
+      "fetch_mode": "github-releases",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "0.",
+        "release",
+        "python",
+        "performance",
+        "cache",
+        "tool",
+        "lock"
+      ],
+      "enabled": false,
+      "notes": "Disabled: Chasing minor library patch/tag releases generates noise and violates the '三选三不选' policy."
+    },
+    {
+      "id": "llamacpp-releases",
+      "name": "llama.cpp GitHub Releases",
+      "source_url": "https://github.com/ggml-org/llama.cpp/releases.atom",
+      "source_type": "github-releases",
+      "fetch_mode": "github-releases",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "b",
+        "release",
+        "quantization",
+        "Apple",
+        "Metal",
+        "CUDA",
+        "GGUF",
+        "support"
+      ],
+      "enabled": false,
+      "notes": "Disabled: Routine GGUF quantization patches generate noise; track major architecture breakthroughs via r/LocalLLaMA instead."
+    },
+    {
+      "id": "producthunt-today",
+      "name": "Product Hunt Daily Featured",
+      "source_url": "https://www.producthunt.com/feed",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P2",
+      "cadence": "daily",
+      "event_filters": [
+        "AI",
+        "Agent",
+        "developer",
+        "tool",
+        "code",
+        "automation",
+        "workflow",
+        "productivity",
+        "open source"
+      ],
+      "enabled": true,
+      "notes": "Daily featured launches on Product Hunt for tracking global AI and maker products."
+    },
+    {
+      "id": "ruanyifeng-blog",
+      "name": "阮一峰的网络日志",
+      "source_url": "https://feeds.feedburner.com/ruanyifeng",
+      "source_type": "rss",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "周刊",
+        "AI",
+        "开源",
+        "工具",
+        "React",
+        "架构",
+        "技术",
+        "未来",
+        "程序员"
+      ],
+      "enabled": true,
+      "notes": "阮一峰科技爱好者周刊与技术随笔，涵盖开源工具、业界趋势与个人反思。"
+    },
+    {
+      "id": "danluu-blog",
+      "name": "Dan Luu's Weblog",
+      "source_url": "https://danluu.com/atom.xml",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI and Coding Agents"
+      ],
+      "priority": "P2",
+      "cadence": "weekly",
+      "event_filters": [
+        "programming",
+        "performance",
+        "culture",
+        "hardware",
+        "scale",
+        "complexity",
+        "simple",
+        "system"
+      ],
+      "enabled": true,
+      "notes": "First-principles essays on hardware, performance, and dismantling industry hype."
+    },
+    {
+      "id": "paulgraham-essays",
+      "name": "Paul Graham Essays",
+      "source_url": "https://filipesilva.github.io/paulgraham-rss/feed.rss",
+      "source_type": "rss",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development"
+      ],
+      "priority": "P2",
+      "cadence": "weekly",
+      "event_filters": [
+        "startup",
+        "ideas",
+        "work",
+        "money",
+        "code",
+        "ai",
+        "founder",
+        "life",
+        "great"
+      ],
+      "enabled": true,
+      "notes": "Timeless essays on independent creation, startup leverage, and hackers."
+    },
+    {
+      "id": "owenyoung-blog",
+      "name": "Owen Young's Blog",
+      "source_url": "https://www.owenyoung.com/feed",
+      "source_type": "rss",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P2",
+      "cadence": "weekly",
+      "event_filters": [
+        "高质量",
+        "开源",
+        "工具",
+        "数字",
+        "博客",
+        "阅读",
+        "AI",
+        "独立开发",
+        "工作流",
+        "文化",
+        "俱乐部",
+        "内容"
+      ],
+      "enabled": true,
+      "notes": "Owen Young 的个人数字花园，专注于高质量内容策展、独立开发工作流与数字极简主义。"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "benchmark",
+        "evaluation",
+        "quantization",
+        "agent",
+        "open-source",
+        "vllm",
+        "latency",
+        "context"
+      ],
+      "enabled": true,
+      "notes": "Top open-source model evaluations, quantization breakthroughs, and benchmark investigations."
+    },
+    {
+      "id": "arxiv-daily-papers",
+      "name": "Hugging Face Daily Papers (arXiv Curation)",
+      "source_url": "https://huggingface.co/papers",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "agent",
+        "coding agent",
+        "swe-bench",
+        "context caching",
+        "kv cache",
+        "benchmark",
+        "quantization",
+        "retrieval",
+        "scaling",
+        "eval"
+      ],
+      "enabled": true,
+      "notes": "Curated arXiv papers filtered by community upvotes and relevance, with automatic cross-domain breakthrough pass-through to prevent echo-chambers."
+    },
+    {
+      "id": "latent-space",
+      "name": "Latent Space (AI Engineering & Harness)",
+      "source_url": "https://www.latent.space",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [],
+      "enabled": true,
+      "notes": "Silicon Valley ground zero for AI Engineers. Deep dives into Coding Agent harness, local AI stack, real-world cost benchmarks, and AI reality checks."
+    },
+    {
+      "id": "pragmatic-engineer",
+      "name": "The Pragmatic Engineer (Gergely Orosz)",
+      "source_url": "https://newsletter.pragmaticengineer.com",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [],
+      "enabled": true,
+      "notes": "Pragmatic engineering practices, real software factory architecture, hardware economics, and anti-hype industry analysis."
+    },
+    {
+      "id": "linus-ekenstam-design",
+      "name": "Linus Ekenstam (AI Product & UX Design)",
+      "source_url": "https://insidemyhead.ai",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI productivity and ways of working",
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [],
+      "enabled": true,
+      "notes": "AI product design, screen recording/multimedia breakthroughs, micro-SaaS tool discoveries, and next-gen human-computer interaction."
+    },
+    {
+      "id": "github-trending-daily",
+      "name": "GitHub Trending (Daily Repositories)",
+      "source_url": "https://github.com/trending",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [],
+      "enabled": true,
+      "notes": "Daily trending GitHub repositories. High-growth breakout tools, AI coding agent skills, frameworks, and developer infrastructure."
+    },
+    {
+      "id": "v2ex-hot-topics",
+      "name": "V2EX Hot Topics (Daily Discussion)",
+      "source_url": "https://www.v2ex.com/?tab=hot",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "AI",
+        "Agent",
+        "独立开发",
+        "大模型",
+        "Cursor",
+        "GPT",
+        "自动化",
+        "降智",
+        "开源",
+        "出海",
+        "架构"
+      ],
+      "enabled": true,
+      "notes": "V2EX today's most discussed topics via official hot API. Filter for technical debates, independent development, and AI tools."
+    },
+    {
+      "id": "linuxdo-top-daily",
+      "name": "LINUX DO Top Daily (via WebBridge)",
+      "source_url": "https://linux.do/top/daily",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "ZCode",
+        "Agent",
+        "DeepSeek",
+        "Gemini",
+        "GPT",
+        "Claude",
+        "开源",
+        "降智",
+        "额度",
+        "作假",
+        "黑幕",
+        "风控",
+        "测评",
+        "逆向",
+        "架构"
+      ],
+      "enabled": true,
+      "notes": "LINUX DO today's top topics polled via local Kimi WebBridge active browser session. Filters out pure giveaway spam, focusing on reverse-engineering, fraud/degradation, and architecture."
+    },
+    {
+      "id": "nodeseek-discussions",
+      "name": "NodeSeek Discussions (NS论坛)",
+      "source_url": "https://www.nodeseek.com",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "Cloudflare",
+        "CF",
+        "服务器",
+        "出海",
+        "电话卡",
+        "esim",
+        "SIM",
+        "网络",
+        "节点",
+        "开源",
+        "Docker",
+        "架构"
+      ],
+      "enabled": true,
+      "notes": "NodeSeek discussions on global dev tools, Cloudflare tricks, international SIM cards, overseas dev infra, and cost hacks."
+    },
+    {
+      "id": "lowendtalk-discussions",
+      "name": "LowEndTalk Discussions (LET)",
+      "source_url": "https://lowendtalk.com",
+      "source_type": "community-feedback",
+      "fetch_mode": "rss",
+      "pillars": [
+        "Independent development"
+      ],
+      "priority": "P2",
+      "cadence": "daily",
+      "event_filters": [
+        "NVMe",
+        "Storage",
+        "BGP",
+        "Dedicated",
+        "Cloud",
+        "Docker"
+      ],
+      "enabled": false,
+      "notes": "LowEndTalk global hacker discussions (disabled due to low quality deal noise)."
+    },
+    {
+      "id": "indiehackers-community",
+      "name": "Indie Hackers Community (Top & Hot)",
+      "source_url": "https://www.indiehackers.com",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P2",
+      "cadence": "weekly",
+      "event_filters": [
+        "MRR",
+        "ARR",
+        "AI",
+        "Product",
+        "Build",
+        "Launch",
+        "Revenue",
+        "SaaS",
+        "Pricing",
+        "Free",
+        "Solo"
+      ],
+      "enabled": true,
+      "notes": "Indie Hackers global founder community discussions, MRR milestones, launch playbooks, and solo SaaS pricing."
+    },
+    {
+      "id": "reddit-localllama",
+      "name": "Reddit r/LocalLLaMA (Top Daily)",
+      "source_url": "https://www.reddit.com/r/LocalLLaMA/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "quantization",
+        "llama",
+        "deepseek",
+        "qwen",
+        "vram",
+        "benchmark",
+        "gguf",
+        "harness",
+        "agent",
+        "inference",
+        "ollama",
+        "open-source"
+      ],
+      "enabled": true,
+      "notes": "Global hub for open-source LLMs, local inference benchmarks, VRAM optimization, and quantization breakthroughs."
+    },
+    {
+      "id": "reddit-claudeai",
+      "name": "Reddit r/ClaudeAI (Top Daily)",
+      "source_url": "https://www.reddit.com/r/ClaudeAI/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "Claude Code",
+        "Sonnet",
+        "Opus",
+        "Artifacts",
+        "prompt",
+        "coding",
+        "benchmark",
+        "limits",
+        "AGENTS.md"
+      ],
+      "enabled": true,
+      "notes": "Frontline user reports on Claude Code, model performance changes, rate limits, and agent developer workflows."
+    },
+    {
+      "id": "reddit-saas",
+      "name": "Reddit r/SaaS (Top Daily)",
+      "source_url": "https://www.reddit.com/r/SaaS/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "MRR",
+        "ARR",
+        "pricing",
+        "churn",
+        "launch",
+        "AI",
+        "builder",
+        "sales",
+        "customer",
+        "cold outreach"
+      ],
+      "enabled": true,
+      "notes": "Micro-SaaS founder discussions, reality checks on AI product monetization, pricing strategies, and buyer friction."
+    },
+    {
+      "id": "reddit-openai",
+      "name": "Reddit r/OpenAI (Top Daily)",
+      "source_url": "https://www.reddit.com/r/OpenAI/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "Codex",
+        "ChatGPT",
+        "o1",
+        "o3",
+        "gpt",
+        "operator",
+        "agent",
+        "canvas",
+        "prompt"
+      ],
+      "enabled": true,
+      "notes": "Community reactions to OpenAI model updates, reasoning models, Operator agent workflows, and quota bugs."
+    },
+    {
+      "id": "reddit-selfhosted",
+      "name": "Reddit r/selfhosted (Top Daily)",
+      "source_url": "https://www.reddit.com/r/selfhosted/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "docker",
+        "vps",
+        "cloudflare",
+        "tunnel",
+        "monitor",
+        "agent",
+        "backup",
+        "storage",
+        "server",
+        "open-source"
+      ],
+      "enabled": true,
+      "notes": "Self-hosted infrastructure, terminal tools, local agent sandboxes, and cheap developer hosting setups."
+    },
+    {
+      "id": "reddit-cursor",
+      "name": "Reddit r/cursor (Top Daily)",
+      "source_url": "https://www.reddit.com/r/cursor/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "daily",
+      "event_filters": [
+        "cursor",
+        "pricing",
+        "tab",
+        "rules",
+        "agent",
+        "composer",
+        "claude",
+        "slow",
+        "bug",
+        "quota"
+      ],
+      "enabled": true,
+      "notes": "Cursor IDE user feedback, subscription pricing tiers, composer agent bugs, and regression reports."
+    },
+    {
+      "id": "reddit-chatgptcoding",
+      "name": "Reddit r/ChatGPTCoding (Top Daily)",
+      "source_url": "https://www.reddit.com/r/ChatGPTCoding/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "agent",
+        "agents",
+        "AI",
+        "coding",
+        "prompt",
+        "workflow",
+        "harness",
+        "claude",
+        "copilot",
+        "stack",
+        "developer"
+      ],
+      "enabled": true,
+      "notes": "Developer practical workflows, prompt engineering for code, and agent adoption in engineering teams."
+    },
+    {
+      "id": "reddit-sideproject",
+      "name": "Reddit r/SideProject (Top Daily)",
+      "source_url": "https://www.reddit.com/r/SideProject/top/?t=day",
+      "source_type": "community-feedback",
+      "fetch_mode": "manual",
+      "pillars": [
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "daily",
+      "event_filters": [
+        "built",
+        "launched",
+        "tool",
+        "ai",
+        "free",
+        "open-source",
+        "saas",
+        "extension",
+        "app"
+      ],
+      "enabled": true,
+      "notes": "Global indie developers launching micro tools, MVPs, client apps, and utility software."
+    },
+    {
+      "id": "eugeneyan-blog",
+      "name": "Eugene Yan's Weblog (Applied LLM & AI Systems)",
+      "source_url": "https://eugeneyan.com/rss/",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "patterns",
+        "evals",
+        "llm",
+        "agent",
+        "systems",
+        "architecture"
+      ],
+      "enabled": true,
+      "notes": "In-depth engineering articles on LLM system design, evals, and agent patterns."
+    },
+    {
+      "id": "chiphuyen-blog",
+      "name": "Chip Huyen's Weblog (AI Engineering & Architecture)",
+      "source_url": "https://huyenchip.com/feed",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "agent",
+        "generative ai",
+        "architecture",
+        "infra",
+        "engineering"
+      ],
+      "enabled": true,
+      "notes": "Low-frequency, high-signal engineering write-ups on AI application architectures and trade-offs."
+    },
+    {
+      "id": "cursor-changelog",
+      "name": "Cursor Official Changelog",
+      "source_url": "https://www.cursor.com/changelog",
+      "source_type": "official-changelog",
+      "fetch_mode": "web-search",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P0",
+      "cadence": "weekly",
+      "event_filters": [
+        "major release",
+        "agent",
+        "composer",
+        "architecture",
+        "model"
+      ],
+      "enabled": false,
+      "notes": "Official release notes for Cursor. Major architectural and feature updates only; do not track minor patches. | 2026-09-24 关停：版本更新/Changelog 类源违反 AGENTS.md §3 降噪铁律（不跟踪库日常发版）；重大发布经社区源（HN/LINUX DO/Reddit）仍会浮现"
+    },
+    {
+      "id": "mitchellh-blog",
+      "name": "Mitchell Hashimoto's Weblog (Systems & Tools)",
+      "source_url": "https://mitchellh.com/feed.xml",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "ghostty",
+        "terminal",
+        "zig",
+        "systems",
+        "tools",
+        "craft"
+      ],
+      "enabled": true,
+      "notes": "Mitchell Hashimoto's writings on systems engineering, Zig, terminal internals, and developer tools."
+    },
+    {
+      "id": "jvns-blog",
+      "name": "Julia Evans (Bite Size Networking & Systems)",
+      "source_url": "https://jvns.ca/atom.xml",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "dns",
+        "linux",
+        "debugging",
+        "git",
+        "terminal",
+        "networking"
+      ],
+      "enabled": true,
+      "notes": "Master-level demystification of everyday developer tools, Linux internals, DNS, and debugging."
+    },
+    {
+      "id": "antirez-blog",
+      "name": "Salvatore Sanfilippo (antirez - Redis & Systems)",
+      "source_url": "https://antirez.com/rss",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "llm",
+        "coding",
+        "systems",
+        "c",
+        "redis",
+        "ai"
+      ],
+      "enabled": true,
+      "notes": "Redis creator's essays on LLM code generation, systems programming, and hacker craft."
+    },
+    {
+      "id": "bytebytego-newsletter",
+      "name": "ByteByteGo (System Design & Large-Scale Systems)",
+      "source_url": "https://blog.bytebytego.com/feed",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "system design",
+        "architecture",
+        "infrastructure",
+        "scale",
+        "database"
+      ],
+      "enabled": true,
+      "notes": "Visual system design deep dives and architecture breakdowns of production infrastructures."
+    },
+    {
+      "id": "martinfowler-bliki",
+      "name": "Martin Fowler (Software Architecture & Refactoring)",
+      "source_url": "https://martinfowler.com/feed.atom",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "refactoring",
+        "architecture",
+        "patterns",
+        "design",
+        "ai"
+      ],
+      "enabled": true,
+      "notes": "Foundational thinking on software architecture, design patterns, and engineering practices."
+    },
+    {
+      "id": "swyx-blog",
+      "name": "Swyx's Weblog (AI Engineering & Frontier Tech)",
+      "source_url": "https://swyx.io/rss.xml",
+      "source_type": "official-blog",
+      "fetch_mode": "rss",
+      "pillars": [
+        "AI and Coding Agents",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P1",
+      "cadence": "weekly",
+      "event_filters": [
+        "ai engineer",
+        "latent space",
+        "agents",
+        "evals",
+        "models"
+      ],
+      "enabled": true,
+      "notes": "Essays from the creator of the AI Engineer movement on autonomous workflows and frontier models."
+    },
+    {
+      "id": "x-direct-signal",
+      "name": "X Direct Signal Capture",
+      "source_url": "https://x.com",
+      "source_type": "personal-evidence",
+      "fetch_mode": "manual",
+      "pillars": [
+        "AI and Coding Agents",
+        "Independent development",
+        "AI productivity and ways of working"
+      ],
+      "priority": "P0",
+      "cadence": "on-demand",
+      "event_filters": [],
+      "enabled": true,
+      "notes": "Verified X tweet captures fetched via x-fetch on demand."
+    }
+  ]
+}

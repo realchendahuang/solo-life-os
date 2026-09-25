@@ -1,0 +1,6 @@
+interface:
+  display_name: "X Fetch"
+  short_description: "Fetch specific X content as evidence"
+  default_prompt: "Use $x-fetch to retrieve this specific X source and preserve its original URL."
+policy:
+  allow_implicit_invocation: true

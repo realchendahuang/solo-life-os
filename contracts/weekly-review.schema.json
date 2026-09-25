@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Weekly Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "created_at",
+    "period",
+    "published",
+    "feedback",
+    "metrics",
+    "evidence_gaps",
+    "recommendations",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^review-"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "published": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "formats",
+        "post_ids"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "formats": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "post_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "outcomes",
+        "user_stated_evidence"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "outcomes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "user_stated_evidence": {
+          "type": "object",
+          "description": "Verbatim user-stated feedback surfaced for review; this is user evidence, never an inferred cause.",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "by_outcome"
+          ],
+          "properties": {
+            "source": {
+              "const": "user-stated"
+            },
+            "by_outcome": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reasons",
+                  "constraints"
+                ],
+                "properties": {
+                  "reasons": {
+                    "type": "array",
+                    "description": "Most recent distinct user-stated reasons first, capped at 10.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "constraints": {
+                    "type": "array",
+                    "description": "Most recent distinct user-stated constraints first, capped at 10.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_count",
+        "by_window"
+      ],
+      "properties": {
+        "record_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Metric records in the review period, before per-window/post deduplication."
+        },
+        "by_window": {
+          "type": "object",
+          "description": "One bucket per collection window; a custom window is keyed custom:<window_start>..<window_end>.",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "record_count",
+              "post_ids",
+              "totals"
+            ],
+            "properties": {
+              "record_count": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Latest snapshot per post in this bucket, i.e. the snapshots summed into totals."
+              },
+              "post_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "totals": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "area",
+          "proposal",
+          "evidence"
+        ],
+        "properties": {
+          "area": {
+            "type": "string"
+          },
+          "proposal": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "ready-for-review",
+        "needs-more-data"
+      ]
+    }
+  }
+}

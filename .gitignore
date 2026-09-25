@@ -1,0 +1,42 @@
+.DS_Store
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+web/node_modules/
+web/dist/
+.playwright-cli/
+.playwright/
+playwright-report/
+test-results/
+
+# SQLite databases stay local; the plain-text files are the source of truth.
+*.db
+*.sqlite
+*.sqlite3
+workspace/history/*.sql
+workspace/history/*.json
+
+# Derived post statistics reports (regenerated on demand, never committed)
+workspace/stats/
+
+# Legacy archived runtime artifacts (kept for reference, never re-synced)
+workspace/archive/**/history/*.json
+workspace/archive/**/stats/
+workspace/archive/**/runs-grok/
+workspace/archive/**/web/
+
+# Temporary test workspaces
+workspace/.smoke-*
+workspace/.topic-gate-*
+
+# Whole deprecation archive: local-only safety net for the 2026-09-24
+# plain-text migration. The live data was fully migrated and verified; the
+# archive never needs to travel across devices.
+workspace/archive/
+
+# Retired web cockpit + Cloudflare Worker (D1 era), moved into
+# workspace/archive/2026-09-24-deprecation/web-archive/ on 2026-09-24.
+workspace/evidence/*.db

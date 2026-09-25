@@ -1,0 +1,6 @@
+interface:
+  display_name: "Source Registry"
+  short_description: "维护低噪声、高价值的一手信息源清单"
+  default_prompt: "Use $source-registry to review whether this source belongs in my X-Tiller discovery registry."
+policy:
+  allow_implicit_invocation: true

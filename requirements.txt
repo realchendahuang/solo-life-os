@@ -1,0 +1,10 @@
+# Runtime dependencies for the X-Tiller tests.
+#
+# PyYAML is the only third-party import in the repository: the post-archive
+# frontmatter layer (hit-archive/scripts/frontmatter.py) and the weekly-review
+# builder both parse YAML. Everything else is Python standard library, and the
+# contract tests deliberately ship their own validator instead of depending on
+# `jsonschema`.
+#
+# CI installs this file before running the unittest suite.
+PyYAML==6.0.3

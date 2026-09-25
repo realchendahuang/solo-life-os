@@ -1,0 +1,7 @@
+interface:
+  display_name: "Post Drafter"
+  short_description: "按陈大黄的判断和口吻写中文单帖、Thread 或 Quote"
+  default_prompt: "Use $post-drafter to turn this selected angle into three meaningfully different Chinese X drafts."
+policy:
+  allow_implicit_invocation: true
+

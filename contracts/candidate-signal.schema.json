@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft-2020-12/schema",
+  "title": "X-Tiller Candidate Signal",
+  "description": "One row in workspace/candidates.jsonl (the single JSONL candidate ledger since the 2026-09-24 plain-text migration). Required fields are the dedup/audit minimum every row carries; enrichment fields (author, content_hash, verification_status, suggested_action, tags, translations) and lifecycle fields (status, dismiss_reason, created_at, source_label) are optional because capture, presentation, and migration writers each set a different subset.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source_id",
+    "source_url",
+    "canonical_url",
+    "source_type",
+    "title",
+    "fetched_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^candidate-"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_label": {
+      "type": "string",
+      "description": "Human-readable source name copied from the registry at capture time."
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_type": {
+      "enum": [
+        "official-changelog",
+        "official-blog",
+        "github-releases",
+        "rss",
+        "community-feedback",
+        "personal-evidence"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title_zh": {
+      "description": "Ingest-time Chinese translation of title. Optional; no longer produced by current capture flow.",
+      "type": "string",
+      "minLength": 1
+    },
+    "needs_translation": {
+      "description": "True when ingest-time translation failed and the title still needs a Chinese rendering.",
+      "type": "boolean"
+    },
+    "author": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Row creation time (migrated rows). Optional."
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Source publication time; may be absent when unknown."
+    },
+    "fetched_at": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "excerpt_zh": {
+      "description": "Ingest-time Chinese translation of excerpt; the original excerpt stays as evidence.",
+      "type": "string"
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "verification_status": {
+      "enum": [
+        "unverified",
+        "official-primary",
+        "corroborated",
+        "rejected"
+      ]
+    },
+    "suggested_action": {
+      "enum": [
+        "brief",
+        "watch",
+        "discard"
+      ]
+    },
+    "status": {
+      "enum": [
+        "new",
+        "presented",
+        "dismissed",
+        "promoted"
+      ],
+      "description": "Presentation lifecycle of the row: new (fresh), presented (shown to user), dismissed (rejected), promoted (became a topic). Dedup tombstones keep dismissed/promoted rows valuable."
+    },
+    "dismiss_reason": {
+      "type": "string",
+      "description": "Why the candidate was dismissed at triage (e.g. stale-news, noise)."
+    },
+    "promoted_to_topic": {
+      "type": "string",
+      "pattern": "^topic-",
+      "description": "Topic id this candidate was promoted into (lineage backlink)."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

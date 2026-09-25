@@ -1,0 +1,7 @@
+interface:
+  display_name: "Idea Capture"
+  short_description: "低摩擦保存原始点子、链接和未成形判断"
+  default_prompt: "Use $idea-capture to save this thought without polishing away my original wording."
+policy:
+  allow_implicit_invocation: true
+

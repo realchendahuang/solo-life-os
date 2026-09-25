@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Idea",
+  "description": "Idea artifact written by idea-capture. possible_pillar is legacy free text kept for backward compatibility; new captures should use possible_pillar_id, the canonical ids defined in profile/content-pillars.md. Existing inbox artifacts that carry only the free-text field remain valid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "captured_at",
+    "idea",
+    "intent",
+    "possible_pillar",
+    "source_urls",
+    "notes",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^idea-"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "idea": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "possible_pillar": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Legacy free-text pillar, still required by this schema. Existing artifacts use several vocabularies ('AI and Coding Agents', 'AI productivity and ways of working', 'independent-developer-stack'). Kept unconstrained for backward compatibility; new captures keep it readable but should also set possible_pillar_id, which is the canonical joining key."
+    },
+    "possible_pillar_id": {
+      "enum": [
+        "ai-coding-agents",
+        "indie-dev",
+        "ai-productivity",
+        "insight-income",
+        "language-learning"
+      ],
+      "description": "Canonical pillar id from profile/content-pillars.md. Optional so the four existing inbox artifacts stay valid; new captures should set it."
+    },
+    "source_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "const": "captured"
+    }
+  }
+}
+

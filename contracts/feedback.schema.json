@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Draft Feedback",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "recorded_at",
+    "draft_id",
+    "outcome",
+    "reason",
+    "constraints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^feedback-"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "draft_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outcome": {
+      "enum": [
+        "edited",
+        "approved",
+        "rejected"
+      ]
+    },
+    "reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "draft_resolved": {
+      "type": "boolean",
+      "description": "Optional; false records that --draft-id matched no draft frontmatter id. Absent on rows written before this field existed."
+    }
+  }
+}

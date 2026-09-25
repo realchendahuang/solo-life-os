@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Topic",
+  "description": "One entry in the personal topic library (workspace/topics/). Simplified 2026-09-24: writing happens in conversation (no draft files), published posts are aligned in batches from official exports, so the library only has to answer two questions — has this topic already been raised, and did it ship. statement is the user's wording and is never rewritten; legacy fields (pillar_id, column_id, target_asset, thesis, source_refs, source_urls, notes, brief_ids, dropped_reason) remain legal but optional for compatibility with existing entries.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "created_at",
+    "title",
+    "status",
+    "statement"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^topic-"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last field change; optional. Equal to created_at until the entry is updated."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short label used to scan and deduplicate the library."
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The topic as the user handed it over, verbatim. Never rewritten, summarized, or expanded."
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "published",
+        "parked",
+        "dropped"
+      ],
+      "description": "candidate: not yet written. published: the post went out (post_urls required). parked: deliberately set aside. dropped: deliberately abandoned (dropped_reason required). The briefed/drafted states were retired with the draft-file workflow; existing entries carrying them stay readable."
+    },
+    "post_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "X post URLs aligned to this topic. Filled in batches from official exports, not in real time."
+    },
+    "legacy_extra": {
+      "type": "object",
+      "description": "Reserved bucket for legacy fields (pillar_id, column_id, target_asset, thesis, notes, source_refs, source_urls, brief_ids, draft_ids, dropped_reason). New entries must not add fields outside required + post_urls + updated_at."
+    },
+    "pillar_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ai-coding-agents",
+        "indie-dev",
+        "ai-productivity",
+        "insight-income",
+        "language-learning",
+        null
+      ],
+      "description": "Legacy field, optional."
+    },
+    "column_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "opc-handbook",
+        "hacker-craft",
+        "digital-sovereignty",
+        "tech-debates",
+        "ai-humanity",
+        null
+      ],
+      "description": "Legacy field, optional."
+    },
+    "target_asset": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "repo",
+        "ebook",
+        "campaign",
+        "monetization",
+        "none",
+        null
+      ],
+      "description": "Legacy field, optional."
+    },
+    "thesis": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Legacy field: the user's stated position, optional."
+    },
+    "source": {
+      "enum": [
+        "user",
+        "idea",
+        "signal",
+        "candidate",
+        "brief"
+      ],
+      "description": "Legacy field, optional: where the topic came from."
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Legacy field, optional."
+    },
+    "source_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Legacy field, optional."
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Legacy field, optional."
+    },
+    "brief_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^brief-"
+      },
+      "description": "Legacy field, optional."
+    },
+    "draft_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Legacy field, optional. Draft files no longer exist; ids are historical references only."
+    },
+    "dropped_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "published"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "post_urls": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "dropped"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "dropped_reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
+}

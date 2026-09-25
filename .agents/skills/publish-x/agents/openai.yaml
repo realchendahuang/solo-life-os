@@ -1,0 +1,6 @@
+interface:
+  display_name: "Publish X"
+  short_description: "把最终稿填入 X 编辑器供本人确认并亲自发布"
+  default_prompt: "Use $publish-x to preview the selected final draft, fill it into X only when I ask, and never click Post in the browser."
+policy:
+  allow_implicit_invocation: true

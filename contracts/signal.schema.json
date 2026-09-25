@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "X-Tiller Signal Batch",
+  "description": "Signal batch shape. HISTORICAL: these batches were produced by x-radar (Grok Build) until 2026-09-19, when the Grok channel was removed as a usage-burn decision; the batches under workspace/signals/ are kept as evidence and this schema still validates them. Nothing produces new batches today — a future discovery channel either writes this shape or replaces this contract deliberately. facts_to_verify is deliberately not given minItems: three of the ten batches carry an empty list for at least one signal, so forcing minItems: 1 would invalidate real artifacts. New batches should treat the field as the verification checklist and keep it non-empty whenever the signal asserts anything factual.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "searched_at",
+    "account",
+    "time_window",
+    "query",
+    "topics",
+    "signals"
+  ],
+  "properties": {
+    "searched_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "account": {
+      "const": "realchendahuang"
+    },
+    "time_window": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string",
+      "minLength": 1
+    },
+    "topics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "signals": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_key",
+          "title",
+          "summary",
+          "why_now",
+          "why_relevant",
+          "momentum",
+          "confidence",
+          "x_urls",
+          "facts_to_verify",
+          "suggested_formats"
+        ],
+        "properties": {
+          "event_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why_now": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why_relevant": {
+            "type": "string",
+            "minLength": 1
+          },
+          "momentum": {
+            "enum": [
+              "rising",
+              "active",
+              "cooling",
+              "unclear"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "x_urls": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^https://(x\\.com|twitter\\.com)/[^/]+/status/[0-9]+"
+            }
+          },
+          "facts_to_verify": {
+            "type": "array",
+            "description": "Facts a human must check against a current primary source before drafting. Empty is valid for backward compatibility but should be the exception: list every time-sensitive or capability claim the signal makes.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "suggested_formats": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": [
+                "single",
+                "thread",
+                "quote",
+                "skip"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
